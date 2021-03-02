@@ -21,7 +21,8 @@ export default {
   right: 0;
   text-align: center;
   font-size: 14px;
-  background-color: #f6f6f6;
+  background-color: #fff;
   box-shadow: 0px -2px 3px rgba(0, 0, 0, .2);
+  z-index: 10;
 }
 </style>

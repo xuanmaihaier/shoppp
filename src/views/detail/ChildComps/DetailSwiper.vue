@@ -1,9 +1,7 @@
 <template>
   <swiper :options="swiperOption" ref="mySwiper">
-    <swiper-slide v-for="item in banner.list" :key="item.acm">
-      <a :href="item.link">
-        <img :src="item.image" alt="" @load="swiperload"/>
-      </a>
+    <swiper-slide v-for="(item, index) in banner" :key="index">
+      <img :src="item" alt=""  />
     </swiper-slide>
     <div class="swiper-pagination" slot="pagination"></div>
     <!-- <div class="swiper-button-prev" slot="button-prev"></div>
@@ -15,6 +13,11 @@
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import "swiper/dist/css/swiper.css";
 export default {
+  name: "DetailSwiper",
+  components: {
+    swiper,
+    swiperSlide,
+  },
   data() {
     return {
       swiperOption: {
@@ -23,12 +26,14 @@ export default {
           stopOnLastSlide: false,
           disableOnInteraction: false,
         },
-        loop: true,
+        loop: false,
+        // 懒加载
+        lazyLoading: true,
+        // lazyLoadingInPrevNext : true,
         // 显示分页
         pagination: {
           el: ".swiper-pagination",
           clickable: true, //允许分页点击跳转
-          
         },
         // 设置点击箭头
         // navigation: {
@@ -38,27 +43,24 @@ export default {
       },
     };
   },
-  name: "HomeSwiper",
   props: {
-    banner: Object,
+    banner: Array,
   },
-  components: {
-    swiper,
-    swiperSlide,
+  methods: {
+    isautoplayinit() {
+      this.isautoplay = this.banner.length > 1;
+    },
+   
   },
-  methods:{
-    swiperload(){
-      this.$emit("swiperload")
-    }
-  }
+  
 };
 </script>
 
 <style scoped>
-  .banner .swiper-container {
+.banner .swiper-container {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 100%;
 }
 .banner .swiper-container .swiper-slide {
   width: 100%;
@@ -69,7 +71,5 @@ export default {
 }
 .banner .swiper-container .swiper-slide img {
   width: 100%;
-  height: 100%;
 }
-
 </style>

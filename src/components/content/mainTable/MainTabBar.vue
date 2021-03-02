@@ -6,9 +6,9 @@
         <p slot="item-text">主页</p>
       </tab-bar-item>
       <tab-bar-item path="/message" activeColor="black">
-        <img slot="item-img" src="@/assets/img/tabbar/message.svg" alt="">
-        <img slot="item-img-active" src="@/assets/img/tabbar/message_active.svg" alt="">
-        <p slot="item-text">消息</p>
+        <img slot="item-img" src="@/assets/img/tabbar/type.svg" alt="">
+        <img slot="item-img-active" src="@/assets/img/tabbar/type_active.svg" alt="">
+        <p slot="item-text">分类</p>
       </tab-bar-item>
       <tab-bar-item path="/shopcart" activeColor="black">
         <img slot="item-img" src="@/assets/img/tabbar/shopcar.svg" alt="">

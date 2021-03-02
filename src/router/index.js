@@ -4,6 +4,7 @@ import Home from '@/views/home/Home.vue'
 import Message from '@/views/message/Message.vue'
 import ShopCart from '@/views/shopcart/ShopCart.vue'
 import Profile from '@/views/profile/Profile.vue'
+import Detail from '@/views/detail/Detail.vue'
 Vue.use(Router)
 const routes = [
     {
@@ -29,6 +30,11 @@ const routes = [
       path:"/profile",
       component:Profile,
       meta:"我的"
+    },
+    {
+      path:"/detail/:id",
+      component:Detail,
+      meta:"商品详情"
     }
   ]
   const router = new Router({
